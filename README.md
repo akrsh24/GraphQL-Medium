@@ -3,7 +3,8 @@
 ## Steps to run the application
 
 ```
-   npm install && node index.js
+   npm install
+   npm start
 ```
 
 ## Tech Stack Used
@@ -12,3 +13,4 @@
 - `GraphQL`
 - `NodeJS`
 - `MongoDB`
+- 'Apollo Server'
