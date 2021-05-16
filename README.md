@@ -13,4 +13,4 @@
 - `GraphQL`
 - `NodeJS`
 - `MongoDB`
-- 'Apollo Server'
+- `Apollo Server`
