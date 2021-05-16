@@ -66,10 +66,7 @@ export const typeDefs = gql`
 
     type Mutation{
         createFriend(input:FriendInput):Friend
-        updateFriend(input:FriendInput):Friend
-        deleteFriend(id:ID!):String
         addASeries(series:SeriesInput):Series
-        updateASeries(series:SeriesInput):Series
     }
 
 `;

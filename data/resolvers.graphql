@@ -1,10 +1,7 @@
 import {Friends,Series} from '../db/dbConnector.js'
 
 /**
-GraphQL Resolvers 
-
-mapping input id with mongo schema id (created by contructor)
-
+* GraphQL Resolvers 
 **/
 
 export const resolvers={
@@ -47,22 +44,6 @@ export const resolvers={
                 })
             })
         },
-        updateFriend:(root,{input})=>{
-            return new Promise((resolve,reject)=>{
-                Friends.findOneAndUpdate({_id:input.id}, input , {new:true},(err,friend)=>{
-                    if(err) reject(err);
-                    else resolve(friend);
-                })
-            })
-        },
-        deleteFriend:(root,{id})=>{
-            return new Promise((resolve,reject)=>{
-               Friends.deleteOne({_id:id},err=>{
-                   if(err) reject(err);
-                   resolve("Removed Successfully")
-               })
-            })
-        },
         addASeries:(root,{series})=>{
             const newSeries=new Series({
                 seriesName:series.seriesName,
@@ -79,13 +60,5 @@ export const resolvers={
                 })
             })
         },
-        updateASeries:(root,{series})=>{
-            return new Promise((resolve,reject)=>{
-                Series.findOneAndUpdate({_id:series.id},series,{new:true},(err,updatedSeries)=>{
-                    if(err) reject(err);
-                    else resolve(updatedSeries);
-                })
-            })
-        }
     },
 };
