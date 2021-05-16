@@ -1,33 +1,111 @@
-# GraphQL Commands
+# GraphQL Queries
 
-## Insert a new catalog
+## Create a new friend
 
 ```
 mutation{
-  createCatalog(
-                input:{
-			            type: "module",
-                        title: "Azure Fundamentals",
-                        description: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like). ",
-                        imageURL: "https://docs.microsoft.com/en-us/learn/achievements/fundamental-azure-concepts.svg",
-                        linkURL: "https://www.google.com/",
-                        tags: ["Azure", "Administrator", "Beginner", "Azure"]
-                    })
-                {
-                    id
-                    type
-                }
-        }
+  createFriend(input:{
+    firstName:"Polly",
+    lastName:"Shelby",
+    gender:FEMALE,
+    age:55,
+    language:"English",
+    email:"polly@abc.com"
+  }){
+    id
+    firstName
+    lastName
+  }
+}
+
 ```
 
-## Get All catalogs
+## Get All Friends
 
 ```
 query{
-  getCatalogs{
-    id
-    type
-    title
+ getAllFriend{
+  id
+  firstName
+    }
+}
+```
+
+## Add a new series
+
+```
+mutation{
+  addASeries(series:{
+    seriesName:"Peaky Blinders",
+    year:2014,
+    rating:THREE
+  }){
+     id
+    seriesName
   }
+}
+```
+
+## Update a series
+
+```
+mutation{
+  updateASeries(series:{
+    id:"609a98d76cbbfb15797b89aa",
+  rating:TWO
+  }){
+    id
+    rating
+    year
+    seriesName
+  }
+}
+```
+
+## Find a series
+
+```
+query{
+  findASeries(id:"609a98e66cbbfb15797b89ab"){
+    id
+    seriesName
+    year
+    rating
+  }
+}
+```
+
+## Aliases
+
+```
+query{
+  serie:findASeries(id:"609a98e66cbbfb15797b89ab"){
+    id
+    rating
+    seriesName
+  }
+  friends:getAllFriend{
+    firstName
+    lastName
+    gender
+  }
+}
+```
+
+## Fragment
+
+```
+query{
+  oneSeries:findASeries(id:"609a98d76cbbfb15797b89aa"){
+    ...seriesFragment
+  }
+  otherSeries:findASeries(id:"609a98f06cbbfb15797b89ac"){
+    ...seriesFragment
+  }
+}
+
+fragment seriesFragment on Series{
+   seriesName
+   year
 }
 ```
