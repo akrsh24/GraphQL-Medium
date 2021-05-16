@@ -1,2 +1,14 @@
-# GraphQL-Medium
-A repository for tutorial on GraphQL with MongoDB and Apollo Server
+# GraphQL Server
+
+## Steps to run the application
+
+```
+   npm install && node index.js
+```
+
+## Tech Stack Used
+
+- `ExpressJS`
+- `GraphQL`
+- `NodeJS`
+- `MongoDB`
