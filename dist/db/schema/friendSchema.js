@@ -1,27 +1,27 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.friendSchema = void 0;
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 exports.friendSchema = new mongoose.Schema({
     firstName: {
-        type: String
+        type: String,
     },
     lastName: {
-        type: String
+        type: String,
     },
     gender: {
-        type: String
+        type: String,
     },
     age: {
-        type: Number
+        type: Number,
     },
     language: {
-        type: String
+        type: String,
     },
     email: {
-        type: String
+        type: String,
     },
     contacts: {
-        type: Array
+        type: Array,
     },
 });
