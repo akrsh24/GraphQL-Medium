@@ -1,15 +1,15 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.seriesSchema = void 0;
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 exports.seriesSchema = new mongoose.Schema({
     seriesName: {
-        type: String,
+        type: String
     },
     year: {
-        type: Number,
+        type: Number
     },
     rating: {
-        type: String,
-    },
+        type: String
+    }
 });
