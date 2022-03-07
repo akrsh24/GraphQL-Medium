@@ -5,6 +5,8 @@
 ```
    npm install
    npm start
+
+   Open a browser and go to http://localhost:8080/graphql
 ```
 
 ## Tech Stack Used

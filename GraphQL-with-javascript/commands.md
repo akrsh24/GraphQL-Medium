@@ -1,33 +1,24 @@
 # GraphQL Queries
 
-## Create a new friend
+## Add a new friend
 
 ```
-mutation{
-  createFriend(input:{
-    firstName:"Polly",
-    lastName:"Shelby",
-    gender:FEMALE,
-    age:55,
-    language:"English",
-    email:"polly@abc.com"
-  }){
+mutation {
+  addFriend(
+    friend: {
+      firstName: "Tom"
+      lastName: "Shelby"
+      gender: MALE,
+      language: "English"
+      age: 25
+      email: "abc@example.com",
+      contacts:[{firstName:"Brain", lastName:"Shelby"}]
+    }
+  ){
     id
     firstName
     lastName
   }
-}
-
-```
-
-## Get All Friends
-
-```
-query{
- getAllFriend{
-  id
-  firstName
-    }
 }
 ```
 
@@ -35,12 +26,36 @@ query{
 
 ```
 mutation{
-  addASeries(series:{
-    seriesName:"Peaky Blinders",
-    year:2014,
-    rating:THREE
+  addSeries(series:{
+    seriesName:"Billie Elish"
+    year:2020
+    rating:TWO
   }){
-     id
+    id
+    seriesName
+    year
+  }
+}
+```
+
+## Get All Friends
+
+```
+query{
+  getFriends{
+    id
+    firstName
+    lastName
+  }
+}
+```
+
+## Get All Series
+
+```
+query{
+  getSeries{
+    id
     seriesName
   }
 }
@@ -50,11 +65,22 @@ mutation{
 
 ```
 query{
-  findASeries(id:"609a98e66cbbfb15797b89ab"){
+  findASeries(id:"62260cc3e3db7f07f913b0eb"){
     id
     seriesName
     year
     rating
+  }
+}
+```
+
+## Find a friend
+
+```
+query{
+  findAFriend(id:"62262a14918e381c23b4338f"){
+   id
+    firstName
   }
 }
 ```
