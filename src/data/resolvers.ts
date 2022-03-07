@@ -14,6 +14,14 @@ export const resolvers = {
         });
       });
     },
+    getAllSeries: (root: any) => {
+      return new Promise((resolve, reject) => {
+        Series.find((err: any, series: any) => {
+          if (err) reject(err);
+          else resolve(series);
+        });
+      });
+    },
     findASeries: (root: any, series: any) => {
       return new Promise((resolve, reject) => {
         Series.findOne({ _id: series.id }, (err: any, series: any) => {

@@ -61,6 +61,7 @@ export const typeDefs = gql`
 
   type Query {
     getAllFriend: [Friend]
+    getAllSeries: [Series]
     findASeries(id: ID): Series
   }
 
