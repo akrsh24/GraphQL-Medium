@@ -3,7 +3,8 @@ type Contact = {
   lastName: string;
 };
 
-export type Friend = {
+export type FriendModel = {
+  id: string;
   firstName: string;
   lastName: string;
   gender: string;

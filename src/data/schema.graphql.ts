@@ -37,14 +37,12 @@ export const typeDefs = gql`
   }
 
   input SeriesInput {
-    id: ID
     seriesName: String
     year: Int
     rating: Rating
   }
 
   input FriendInput {
-    id: ID
     firstName: String
     lastName: String
     gender: Gender
@@ -60,13 +58,14 @@ export const typeDefs = gql`
   }
 
   type Query {
-    getAllFriend: [Friend]
-    getAllSeries: [Series]
-    findASeries(id: ID): Series
+    getFriends: [Friend]
+    getSeries: [Series]
+    findAFriend(id: String): Friend
+    findASeries(id: String): Series
   }
 
   type Mutation {
-    createFriend(input: FriendInput): Friend
-    addASeries(series: SeriesInput): Series
+    addFriend(friend: FriendInput): Friend
+    addSeries(series: SeriesInput): Series
   }
 `;

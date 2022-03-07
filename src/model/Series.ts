@@ -3,7 +3,8 @@ enum Rating {
   TWO = "two",
   THREE = "three",
 }
-export type Series = {
+export type SeriesModel = {
+  id: string;
   name: string;
   year: number;
   rating: Rating;

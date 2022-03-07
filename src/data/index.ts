@@ -1,2 +1,2 @@
-export * from "./resolvers";
-export * from "./schema";
+export * from "./resolvers.graphql";
+export * from "./schema.graphql";

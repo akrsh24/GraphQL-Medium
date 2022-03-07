@@ -10,5 +10,5 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
     for (var p in m) if (p !== "default" && !exports.hasOwnProperty(p)) __createBinding(exports, m, p);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-__exportStar(require("./resolvers.graphql"), exports);
-__exportStar(require("./schema.graphql"), exports);
+__exportStar(require("./Friend"), exports);
+__exportStar(require("./Series"), exports);
