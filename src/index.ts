@@ -3,7 +3,14 @@ import { ApolloServer } from "apollo-server-express";
 import { resolvers, typeDefs } from "./data";
 import { PORT } from "./config";
 
+/**
+ * Create an Apollo server instance.
+ */
 const server = new ApolloServer({ typeDefs, resolvers });
+
+/**
+ * Create an express server and apply the Apollo Server middleware
+ */
 const app = express();
 server.applyMiddleware({ app });
 
@@ -13,6 +20,6 @@ app.get("/", (req, res) => {
 
 app.listen({ port: PORT }, () => {
   console.log(
-    `Server is running at http://localhost:8080${server.graphqlPath}`
+    `Server is running at http://localhost:${PORT}${server.graphqlPath}`
   );
 });
