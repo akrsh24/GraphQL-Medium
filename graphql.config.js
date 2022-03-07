@@ -1,8 +1,6 @@
-module.exports = {
-    projects: {
-        app: {
-            schema: ["./data/schema.graphql"],
-            documents: ["**/*.{graphql,js,ts,jsx,tsx}"],
-        }
-    }
-}
+export const projects = {
+  app: {
+    schema: ["./data/schema.graphql"],
+    documents: ["**/*.{graphql,js,ts,jsx,tsx}"],
+  },
+};
