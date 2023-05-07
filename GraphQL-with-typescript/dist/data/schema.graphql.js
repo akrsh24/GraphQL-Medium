@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.typeDefs = void 0;
 const apollo_server_express_1 = require("apollo-server-express");
-exports.typeDefs = apollo_server_express_1.gql `
+exports.typeDefs = (0, apollo_server_express_1.gql) `
   type Friend {
     id: ID
     firstName: String
@@ -54,6 +54,32 @@ exports.typeDefs = apollo_server_express_1.gql `
     contacts: [ContactInput]
   }
 
+  input UpdateSeriesInput {
+    id: ID
+    seriesName: String
+    year: Int
+    rating: Rating
+  }
+
+  input UpdateFriendInput {
+    id: ID
+    firstName: String
+    lastName: String
+    gender: Gender
+    age: Int
+    language: String
+    email: String
+    contacts: [ContactInput]
+  }
+
+  input DeleteSeriesInput {
+    id: ID
+  }
+
+  input DeleteFriendInput {
+    id: ID
+  }
+
   input ContactInput {
     firstName: String
     lastName: String
@@ -68,6 +94,10 @@ exports.typeDefs = apollo_server_express_1.gql `
 
   type Mutation {
     addFriend(friend: FriendInput): Friend
+    updateAFriend(friend: UpdateFriendInput): Friend
+    deleteAFriend(friend: DeleteFriendInput): Friend
     addSeries(series: SeriesInput): Series
+    updateASeries(series: UpdateSeriesInput): Series
+    deleteASeries(series: DeleteSeriesInput): Series
   }
 `;

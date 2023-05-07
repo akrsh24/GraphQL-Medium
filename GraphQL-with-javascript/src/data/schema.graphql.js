@@ -52,6 +52,32 @@ export const typeDefs = gql`
     contacts: [ContactInput]
   }
 
+  input UpdateSeriesInput {
+    id: ID
+    seriesName: String
+    year: Int
+    rating: Rating
+  }
+
+  input UpdateFriendInput {
+    id: ID
+    firstName: String
+    lastName: String
+    gender: Gender
+    age: Int
+    language: String
+    email: String
+    contacts: [ContactInput]
+  }
+
+  input DeleteSeriesInput {
+    id: ID
+  }
+
+  input DeleteFriendInput {
+    id: ID
+  }
+
   input ContactInput {
     firstName: String
     lastName: String
@@ -66,6 +92,10 @@ export const typeDefs = gql`
 
   type Mutation {
     addFriend(friend: FriendInput): Friend
+    updateAFriend(friend: UpdateFriendInput): Friend
+    deleteAFriend(friend: DeleteFriendInput): Friend
     addSeries(series: SeriesInput): Series
+    updateASeries(series: UpdateSeriesInput): Series
+    deleteASeries(series: DeleteSeriesInput): Series
   }
 `;
