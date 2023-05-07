@@ -64,5 +64,41 @@ export const resolvers = {
         });
       });
     },
+    updateAFriend: (root, { friend }) => {
+      return new Promise((resolve, reject) => {
+        Friends.findByIdAndUpdate(friend.id, {
+          ...friend
+        }, (err) => {
+          if (err) reject(err);
+          else resolve(friend);
+        });
+      });
+    },
+    updateASeries: (root, { series }) => {
+      return new Promise((resolve, reject) => {
+        Series.findByIdAndUpdate(series.id, {
+          ...series
+        }, (err) => {
+          if (err) reject(err);
+          else resolve(series);
+        });
+      });
+    },
+    deleteAFriend: (root, { friend }) => {
+      return new Promise((resolve, reject) => {
+        Friends.findByIdAndDelete(friend.id, (err) => {
+          if (err) reject(err);
+          else resolve(friend);
+        });
+      });
+    },
+    deleteASeries: (root, { series }) => {
+      return new Promise((resolve, reject) => {
+        Series.findByIdAndDelete(series.id, (err) => {
+          if (err) reject(err);
+          else resolve(series);
+        });
+      });
+    },
   },
 };
