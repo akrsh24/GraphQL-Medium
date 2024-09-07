@@ -83,5 +83,45 @@ exports.resolvers = {
                 });
             });
         },
+        updateAFriend: (root, { friend }) => {
+            return new Promise((resolve, reject) => {
+                db_1.Friends.findByIdAndUpdate(friend.id, Object.assign({}, friend), (err) => {
+                    if (err)
+                        reject(err);
+                    else
+                        resolve(friend);
+                });
+            });
+        },
+        updateASeries: (root, { series }) => {
+            return new Promise((resolve, reject) => {
+                db_1.Series.findByIdAndUpdate(series.id, Object.assign({}, series), (err) => {
+                    if (err)
+                        reject(err);
+                    else
+                        resolve(series);
+                });
+            });
+        },
+        deleteAFriend: (root, { friend }) => {
+            return new Promise((resolve, reject) => {
+                db_1.Friends.findByIdAndDelete(friend.id, (err) => {
+                    if (err)
+                        reject(err);
+                    else
+                        resolve(friend);
+                });
+            });
+        },
+        deleteASeries: (root, { series }) => {
+            return new Promise((resolve, reject) => {
+                db_1.Series.findByIdAndDelete(series.id, (err) => {
+                    if (err)
+                        reject(err);
+                    else
+                        resolve(series);
+                });
+            });
+        },
     },
 };
